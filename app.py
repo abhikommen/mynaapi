@@ -30,9 +30,10 @@ def hello():
     c = twint.Config()
     c.Username = "elon musk"
     c.Limit = 10
-    c.Store_object = Truep
+    c.Store_object = True
     c.Store_object_tweets_list = tweets
     twint.run.Search(c)
 
-
-app.run(debug=True)
+if __name__ == "__main__":
+    from waitress import serve
+    serve(app, host="0.0.0.0", port=8080)
