@@ -1,6 +1,4 @@
 from flask import Flask
-from flask import request
-
 import twint
 import json 
 
@@ -33,7 +31,3 @@ def hello():
     c.Store_object = True
     c.Store_object_tweets_list = tweets
     twint.run.Search(c)
-
-if __name__ == "__main__":
-    from waitress import serve
-    serve(app, host="0.0.0.0", port=8080)
