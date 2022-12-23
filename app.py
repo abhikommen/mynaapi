@@ -30,7 +30,7 @@ def hello():
     c = twint.Config()
     c.Username = "elon musk"
     c.Limit = 10
-    c.Store_object = True
+    c.Store_object = Truep
     c.Store_object_tweets_list = tweets
     twint.run.Search(c)
 
