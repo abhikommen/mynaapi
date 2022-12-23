@@ -1,6 +1,7 @@
 from flask import Flask
+from flask import request
+
 import twint
-import json 
 
 from apis.search import searchUserName
 
@@ -8,11 +9,10 @@ app = Flask(__name__)
 
 tweets = []
 
-@app.route('/home')
+@app.route('/')
 def index():
-    hello()
-    return json.dumps(tweets[0].__dict__)
-
+    return "Hello"
+    
 
 @app.route('/search')
 def search():
