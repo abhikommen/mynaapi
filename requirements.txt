@@ -29,7 +29,6 @@ Jinja2==3.1.2
 macholib==1.15.2
 MarkupSafe==2.1.1
 multidict==6.0.3
-numpy==1.24.0
 pandas==1.5.2
 pip==21.2.4
 pycares==4.3.0
