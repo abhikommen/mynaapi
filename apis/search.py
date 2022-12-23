@@ -21,12 +21,13 @@ def searchUserName(userName, size) :
         jsonObject['name'] = x['name']
         jsonObject['description'] = x['description']
         jsonObject['following'] = x['friends_count']
-        jsonObject['follwers'] = x['followers_count']
+        jsonObject['followers'] = x['followers_count']
 
         jsonResult.append(jsonObject)
 
-    result['size'] = len(r.json())
     result['result'] = jsonResult
+    result['code'] = 200
+    result['error'] = None
     
     return result
 
