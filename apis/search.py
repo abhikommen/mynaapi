@@ -13,11 +13,12 @@ def searchUserName(userName, size) :
     result = {}
     jsonResult = []
 
+
     for x in r.json():
         jsonObject = {}
         jsonObject['id'] = x["id"]
         jsonObject['user_name'] = x['screen_name']
-        jsonObject['pfp'] = x['profile_image_url']
+        jsonObject['pfp'] = x['profile_image_url_https'].replace('_normal', '')
         jsonObject['name'] = x['name']
         jsonObject['description'] = x['description']
         jsonObject['following'] = x['friends_count']
