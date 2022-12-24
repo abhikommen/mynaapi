@@ -23,6 +23,7 @@ def searchUserName(userName, size) :
         jsonObject['description'] = x['description']
         jsonObject['following'] = x['friends_count']
         jsonObject['followers'] = x['followers_count']
+        jsonObject['verified'] = x['verified']
 
         jsonResult.append(jsonObject)
 
