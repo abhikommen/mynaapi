@@ -9,7 +9,6 @@ def index():
     return "Twitter APi"
     
 
-
 @app.route('/tweet')
 def tweet():
     user = request.args.get('user')
