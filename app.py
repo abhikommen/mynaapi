@@ -33,4 +33,5 @@ def parseResponse(tweetList):
         jsonResult.append(tweet.__dict__)
     return jsonResult
 
-app.run(debug=True, host = "localhost", port = 5555)
+if __name__ == "__main__":
+    app.run(host = "0.0.0.0", port = 8080)
