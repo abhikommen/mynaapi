@@ -47,3 +47,4 @@ Werkzeug
 yarl
 zipp
 gunicorn
+twint
