@@ -1,12 +1,6 @@
 aiodns
-aioflask
-aiohttp
-aiohttp-socks
-aiosignal
 asgiref
 async-timeout
-asyncio
-asynctest
 attrs
 beautifulsoup4
 cchardet
