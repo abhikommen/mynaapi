@@ -1,4 +1,4 @@
-from flask import Flask, request, Response
+from flask import Flask, request, Response, send_from_directory
 from services.tweetscrapper import getTweet, getBulkTweets
 from models.apiresponse import ApiResponse
 from services.search import searchUserName
@@ -8,7 +8,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def index():
-    return "Welcome To Twint API"
+    return send_from_directory("homepage", 'index.html')
 
 
 @app.route('/search/<username>')
