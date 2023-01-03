@@ -25,8 +25,8 @@ def tweet(username, count = 20):
     return result 
 
 
-@app.route('/tweets/', methods = ['GET'])
-@app.route('/tweets/<count>', methods = ['GET'])
+@app.route('/tweets/', methods = ['POST'])
+@app.route('/tweets/<count>', methods = ['POST'])
 def multiple(count = 20):
     try : 
         usersArray = request.json
