@@ -4,11 +4,11 @@ from models.apiresponse import ApiResponse
 from services.search import searchUserName
 
 
-app = Flask(__name__)
+app = Flask(__name__, static_url_path='/static')
 
 @app.route('/')
 def index():
-    return send_from_directory("homepage", 'index.html')
+    return send_from_directory("static", 'index.html')
 
 
 @app.route('/search/<username>')
