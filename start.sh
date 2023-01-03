@@ -5,4 +5,4 @@ echo "Restarting Ngnix..."
 sudo systemctl stop nginx
 sudo systemctl restart nginx
 echo "Ngnix Restarted..."
-gunicorn app:app --daemeon
+gunicorn3 --log-level debug server:app
