@@ -15,8 +15,8 @@ def index():
 def search(username):
     return searchUserName(username)
     
-@app.route('/tweet/<username>')
-@app.route('/tweet/<username>/<count>')
+@app.route('/tweet/<username>', methods=['GET'])
+@app.route('/tweet/<username>/<count>', methods=['GET'])
 def tweet(username, count = 20):
     start = request.args.get('start')
     end = request.args.get('end')
@@ -25,8 +25,8 @@ def tweet(username, count = 20):
     return result 
 
 
-@app.route('/tweets/', methods = ['POST'])
-@app.route('/tweets/<count>', methods = ['POST'])
+@app.route('/tweets/', methods = ['GET'])
+@app.route('/tweets/<count>', methods = ['GET'])
 def multiple(count = 20):
     try : 
         usersArray = request.json
