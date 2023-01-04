@@ -1,6 +1,7 @@
 import twint
 from datetime import datetime
 from multiprocessing.pool import ThreadPool
+import re
 
 
 def request(user, count, start, end):
@@ -46,8 +47,9 @@ def parseResponse(tweetList, limit):
             tweet.type = 1
         elif (len(tweet.quote_url) > 0):
             tweet.type = 3
+            tweet.quote_url = re.search("(\d+)", tweet.quote_url).group(0)
         else : tweet.type = 0
-
+        
         jsonResult.append(tweet.__dict__)
     
     result['result'] = jsonResult

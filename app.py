@@ -5,7 +5,6 @@ from services.search import searchUserName
 from services.detail import getDetail
 from logging import FileHandler,WARNING
 
-
 app = Flask(__name__, static_url_path='/static')
 
 file_handler = FileHandler('errorlog.txt')
