@@ -8,11 +8,11 @@ def request(user, count, start, end):
     c = twint.Config()
     c.Username = user
     c.Limit = count
+    c.User_full = True
     c.Store_object = True
     c.User_full = True
 
     if start is not None and end is not None and start.isnumeric() and end.isnumeric():
-        print(start)
         since = datetime.fromtimestamp(int(start))
         until = datetime.fromtimestamp(int(end))
         c.Since = str(since) 
@@ -28,7 +28,7 @@ def getTweet(user, count, start, end):
         resultTweets = request(user, count, start, end)
         return parseResponse(resultTweets, count)
 
-    except ValueError as ve:
+    except Exception as ve:
         result = {}
         result['result'] = None
         result['code'] = 404
@@ -40,6 +40,14 @@ def parseResponse(tweetList, limit):
     result = {}
     jsonResult = []
     for tweet in tweetList:
+        if(tweet.video == 1 and len(tweet.thumbnail) > 0 and "video" in tweet.thumbnail):
+            tweet.type = 2
+        elif (tweet.video == 1 and len(tweet.thumbnail) > 0 and "media" in tweet.thumbnail):
+            tweet.type = 1
+        elif (len(tweet.quote_url) > 0):
+            tweet.type = 3
+        else : tweet.type = 0
+
         jsonResult.append(tweet.__dict__)
     
     result['result'] = jsonResult
