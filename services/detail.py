@@ -40,7 +40,11 @@ def getDetail(tweetId) :
 
             except BaseException as e : 
                 print(repr(e))
-            return result, 200
+            apiResponse = {}
+            apiResponse["code"] = 200
+            apiResponse["result"] = result
+            apiResponse["error"] = None
+            return apiResponse, 200
         else : 
             raise Exception("invalid tweet id "+ tweetId)
     except Exception as e :
