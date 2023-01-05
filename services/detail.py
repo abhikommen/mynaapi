@@ -10,6 +10,7 @@ def getDetail(tweetId) :
         body = {"tweetId":tweetId}
         r = requests.post('https://pika.style/api/templates/web-tweet-image', json = body)
         jsonResponse = r.json()
+        # return jsonResponse
         if "tweet" not in jsonResponse:
             result = {}
             result["author_id"] = jsonResponse["data"]["author_id"]
@@ -40,6 +41,21 @@ def getDetail(tweetId) :
 
             except BaseException as e : 
                 print(repr(e))
+
+            currentUser = jsonResponse["includes"]["users"][0]    
+
+            user = {}
+            user['id'] = currentUser["id"]
+            user['user_name'] = currentUser['username']
+            user['pfp'] = currentUser['profile_image_url'].replace('_normal', '')
+            user['name'] = currentUser['name']
+            user['description'] = currentUser['description']
+            user['following'] = currentUser['public_metrics']['following_count']
+            user['followers'] = currentUser['public_metrics']['followers_count']
+            user['verified'] = currentUser['verified']
+
+            result['user'] = user
+
             apiResponse = {}
             apiResponse["code"] = 200
             apiResponse["result"] = result
