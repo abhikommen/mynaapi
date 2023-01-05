@@ -52,12 +52,14 @@ def parseResponse(tweetList, limit):
         
         jsonResult.append(tweet.__dict__)
     
+    jsonResult.sort(key=get_age, reverse= True)
     result['result'] = jsonResult
     result['code'] = 200
     result['error'] = None
     return result, 200
 
-
+def get_age(employee):
+    return employee.get('age')
 
 def getBulkTweets(users, count, start, end):
     result = []
