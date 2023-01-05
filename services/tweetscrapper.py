@@ -59,7 +59,7 @@ def parseResponse(tweetList, limit):
     return result, 200
 
 def get_age(employee):
-    return employee.get('age')
+    return employee.get('id')
 
 def getBulkTweets(users, count, start, end):
     result = []
