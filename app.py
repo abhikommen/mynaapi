@@ -1,5 +1,6 @@
 from flask import Flask, request, Response, send_from_directory
 from services.tweetscrapper import getTweet, getBulkTweets
+from services.profile import getProfile
 from models.apiresponse import ApiResponse
 from services.search import searchUserName
 from services.detail import getDetail
@@ -33,6 +34,12 @@ def tweet(username, count = 20):
 def detail(tweetid):
     result = getDetail(tweetid)
     return result     
+
+
+@app.route('/profile/<username>', methods=['GET'])
+def profile(username):
+    result = getProfile(username)
+    return result    
 
 
 @app.route('/tweets/', methods = ['POST'])
