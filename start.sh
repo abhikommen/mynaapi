@@ -5,4 +5,4 @@ echo "Restarting Ngnix..."
 sudo systemctl stop nginx
 sudo systemctl restart nginx
 echo "Ngnix Restarted..."
-gunicorn app:app 
+gunicorn -w 4 app:app
