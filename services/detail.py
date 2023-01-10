@@ -46,7 +46,7 @@ def getDetail(tweetId) :
 
             user = {}
             user['id'] = currentUser["id"]
-            user['user_name'] = currentUser['username']
+            user['username'] = currentUser['username']
             user['pfp'] = currentUser['profile_image_url'].replace('_normal', '')
             user['name'] = currentUser['name']
             user['description'] = currentUser['description']
