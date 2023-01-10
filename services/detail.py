@@ -20,19 +20,23 @@ def getDetail(tweetId) :
             result["reply_count"] = jsonResponse["data"]["public_metrics"]["reply_count"]
             result["retweet_count"] = jsonResponse["data"]["public_metrics"]["retweet_count"]
             result["text"] = jsonResponse["data"]["text"]
+            result["media_type"] = None
             try :
                 urls = []
                 for item in jsonResponse["includes"]["media"] :
                     url = {}
                     if(item['type'] == "photo"):
                         url["type"] = "photo"
+                        result["media_type"] = "photo"
                         url["url"] = item['url']
                     elif (item['type'] == "video"):
                         url["type"] = "video"
+                        result["media_type"] = "video"
                         url['thumbnail'] = item['preview_image_url']
                         url['url'] = item['variants'][0]['url']
                     elif (item['type'] == "animated_gif"):
                         url["type"] = "gif"
+                        result["media_type"] = "gif"
                         url['thumbnail'] = item['preview_image_url']
                         url['url'] = item['variants'][0]['url']
 
