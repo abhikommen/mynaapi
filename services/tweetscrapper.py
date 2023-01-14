@@ -9,9 +9,7 @@ def request(user, count, start, end):
     c = twint.Config()
     c.Username = user
     c.Limit = count
-    c.User_full = True
     c.Store_object = True
-    c.User_full = True
 
     if start is not None and end is not None and start.isnumeric() and end.isnumeric():
         since = datetime.fromtimestamp(int(start))
